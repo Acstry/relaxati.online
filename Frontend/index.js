@@ -52,6 +52,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
         visitOrder.push(chosen.place);
     }
     console.log(visitOrder);
+    plotRoute(startCoords, visitOrder);
 }
 
 function convertCoords(coords){
@@ -60,6 +61,8 @@ function convertCoords(coords){
             latitude: coords[1],
             longitude: coords[0]
         }
+    }else if(coords.latitude && coords.longitude){
+        return [coords.longitude, coords.latitude];
     }
     return coords;
 }
@@ -142,6 +145,10 @@ function apiWait(){
         requestCount = 0;
         return prevWait;
      }
+}
+
+function plotRoute(startingCoords, places){
+    var mymap = L.map('mapid').setView(convertCoords(startingCoords), 13);
 }
 
 function openForm() {
