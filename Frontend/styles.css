@@ -17,21 +17,24 @@ body {
 
 	}
 
-	.paths {
-  	height: 60%;
+.paths {
+  	height: 65%;
   	width: 20%;
   	position: fixed;
   	left: 0;
+		bottom:0;
 		margin-left: 3%;
-		margin-top: 20%;
+		margin-bottom:3%;
   	overflow-x: hidden;
 }
 
 .friends {
-	height: 70%;
+	height: 65%;
 	width: 20%;
 	position: fixed;
 	right: 0;
+	top: 0;
+	margin-top: 3%;
 	margin-right: 3%;
 	overflow-x: hidden;
 }
@@ -56,8 +59,10 @@ body {
 		position: fixed;
 		width: 50%;
 		height: 20%;
+		top: 0;
 		margin-left: 25%;
 		margin-right: 3%;
+		margin-top: 3%;
 }
 
 .logo {
