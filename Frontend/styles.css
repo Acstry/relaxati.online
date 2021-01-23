@@ -11,6 +11,9 @@ body {
 		mix-blend-mode: lighten;
 		background: #FFFFFF;
 		border-radius: 8px;
+		font-family: Helvetica;
+		font-style: normal;
+		font-weight: bold;
 
 	}
 
@@ -21,6 +24,7 @@ body {
 	#dashboard {
 
 		display: inline-block;
+		position: relative;
 		width: 75%;
 		height: 10%;
 
