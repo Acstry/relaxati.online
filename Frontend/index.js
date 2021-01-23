@@ -25,7 +25,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
     let visitOrder = [];
     let startCoords = await getMyCoords(address);
     while(remainingDuration > 0){
-        let coords = visitOrder.length > 0 ? 
+        let coords = visitOrder.length > 0 ?
             convertCoords(visitOrder[visitOrder.length - 1].location.coordinates) : startCoords;
         console.log(coords);
         let places = await getNearbyPlaces(coords, interests);
@@ -66,19 +66,19 @@ function convertCoords(coords){
 
 function getMyCoords(address){
     return new Promise((resolve, reject) => {
-    
+
         Radar.geocode({query: address}, (err, res) => {
             if(!err && res.addresses[0]){
                 resolve({
                     latitude: res.addresses[0].latitude,
                     longitude: res.addresses[0].longitude
-                }); 
+                });
             }else{
                 reject(err || new Error('not found'));
             }
         });
-    
-    });    
+
+    });
 }
 
 function getNearbyPlaces(coords, interests=[INTERESTS.OUTDOOR]){
@@ -96,7 +96,7 @@ function getNearbyPlaces(coords, interests=[INTERESTS.OUTDOOR]){
                 reject(err);
             }
         });
-    
+
     });
 }
 
@@ -144,5 +144,10 @@ function apiWait(){
      }
 }
 
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
-
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}

@@ -4,6 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="inputForm.css">
 	<link rel="icon" type="image.png" sizes="32x32" href="Pictures/logo.png">
 	<script src="https://js.radar.io/v3/radar.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -26,7 +27,7 @@
 			<h2>Dashboard</h2>
 				<div class="row inline">
   				<div class="column inline">
-						<button type="button" class="btn btn-primary inline">Plan my walk!</button>
+						<button type="button" class="btn btn-primary inline popup" onclick="openForm()">Plan my walk!</button>
 						<input type="image" src="Pictures/eat.png" alt="eat" style="width:30%">
     				<input type="image" src="Pictures/sleep.png" alt="sleep" style="width:30%">
     				<input type="image" src="Pictures/work.png" alt="work" style="width:30%">
@@ -35,6 +36,26 @@
 				</div>
 
 		</div>
+
+		<!---form displaying over the topBar section--->
+		<div class="form-popup" id="myForm">
+  		<form action="/action_page.php" class="form-container">
+    		<h1>Address</h1>
+
+    		<label for="email"><b>Address Line 1</b></label>
+    		<input type="text" placeholder="Ex: 1234 Smart Ln." name="address" required>
+
+    		<label for="psw"><b>City and State</b></label>
+    		<input type="text" placeholder="Ex: Parma, OH" name="city" required>
+
+				<!---add in menu of choices for timeing: 20, 45, 60, and hour and 15 mins--->
+				<h1>Duration</h1>
+
+    		<button type="submit" class="btn">Submit</button>
+    		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  		</form>
+		</div>
+
 	</div>
 
 	<div class="boxes friends">
