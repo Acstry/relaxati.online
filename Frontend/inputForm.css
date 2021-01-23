@@ -8,6 +8,7 @@
   width: 100%;
   margin-bottom:10px;
   opacity: 0.8;
+  margin-top: 4%;
 }
 
 /* Add some hover effects to buttons */
@@ -47,4 +48,8 @@
 .form-container input[type=text]:focus {
   background-color: #ddd;
   outline: none;
+}
+
+input[type="radio"]{
+  margin-bottom: 1%;
 }
