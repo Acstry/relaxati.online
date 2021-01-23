@@ -45,6 +45,7 @@ body {
 		font-style: normal;
 		font-weight: bold;
 		padding-left: 1.5%;
+		padding-right: 1.5%;
 		padding-top: .2%;
 	}
 
@@ -116,6 +117,8 @@ body {
 
 .btn {
 	border-radius: 8px;
+	margin-right:5%;
+	margin-left: 2%;
 }
 
 .btn:hover {
