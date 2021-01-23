@@ -17,31 +17,61 @@ body {
 
 	}
 
-	.topBar {
+	.paths {
+  	height: 60%;
+  	width: 20%;
+  	position: fixed;
+  	left: 0;
+		margin-left: 3%;
+		margin-top: 20%;
+  	overflow-x: hidden;
+}
+
+.friends {
+	height: 70%;
+	width: 20%;
+	position: fixed;
+	right: 0;
+	margin-right: 3%;
+	overflow-x: hidden;
+}
+
+.stats {
+	width: 70%;
+	height: 20%;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin-right: 3%;
+	margin-bottom: 3%;
+}
+
+.topBar {
+	display: inline-block;
+}
+
+.dashboard {
+
 		display: inline-block;
-	}
+		position: fixed;
+		width: 50%;
+		height: 20%;
+		margin-left: 25%;
+		margin-right: 3%;
+}
 
-	#dashboard {
-
+.logo {
+		position: fixed;
 		display: inline-block;
-		position: relative;
-		width: 75%;
-		height: 10%;
-
-	}
-
-	#logo {
-		position: relative;
-		display: inline-block;
-		width: 15%;
-		height: 10%;
-		padding: 2%;
-	}
+		left: 0;
+		margin-right: 0;
+}
 
 .map {
+		position: fixed;
+		margin-left: 30%;
+		margin-right: 30%;
+		margin-top: 30%;
+		margin-bottom: 30%;
 
-	padding: 2%;
-	margin-left: auto;
-	margin-right: auto;
-
-}
+	}
