@@ -10,7 +10,9 @@
 .plan {
 	background-color: #811bff;
 	text-align: center;
-	padding: 5px;
+	padding: 2px;
+	border-radius: 8px;
+	width:150px;
 }
 
 .vertical-menu {
