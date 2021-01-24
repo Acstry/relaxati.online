@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+html.wait, html.wait * { cursor: wait !important; }
 .px-2 {
   padding-left: ($spacer * .5) !important;
   padding-right: ($spacer * .5) !important;

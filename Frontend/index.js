@@ -1,6 +1,6 @@
 
 // paste key here: please do NOT commit the API key
-const PUBLISH_KEY = "prj_test_pk_6e4c397df81c90395fe8ea83def5745747ebb18c";
+const PUBLISH_KEY = "";
 
 let prevWait = Promise.resolve();
 let requestCount = 0;
@@ -71,6 +71,7 @@ function findSpecifiedRoute(){
 }
 
 async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=[INTERESTS.OUTDOOR, INTERESTS.RELIGION], duration=30) {
+    document.documentElement.classList.add('wait');
     let remainingDuration = duration;
     // don't want to visit the same location twice
     let visitedIds = new Set();
@@ -112,6 +113,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
         places: visitOrder
     };
     
+    document.documentElement.classList.remove('wait');
     closeForm();
     let elem = addRoute(route);
     elem.click()
