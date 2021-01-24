@@ -25,7 +25,20 @@ const INTERESTS = {
     RELIGION: 'religion',
 };
 
-window.onload = () => findMyRoute();
+//window.onload = () => findMyRoute();
+
+function findSpecifiedRoute(){
+    console.log('here');
+    let streetAddress = document.getElementById('streetAddress').value;
+    let cityAndState = document.getElementById('cityAndState').value;
+    //let duration = document.getElementById('durationSelect').value;
+    let durationRadio = document.getElementsByName('duration');
+    console.log(durationRadio);
+    let duration = Array.from(durationRadio).filter(dur => dur.checked)[0].value;
+    console.log(streetAddress, cityAndState, duration);
+    findMyRoute(`${streetAddress} ${cityAndState}`, [INTERESTS.OUTDOOR, INTERESTS.RELIGION], parseInt(duration));
+    return false;
+}
 
 async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=[INTERESTS.OUTDOOR, INTERESTS.RELIGION], duration=30) {
     let remainingDuration = duration;
@@ -63,6 +76,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
     }
     
     console.log(visitOrder);
+    closeForm();
     plotRoute(startCoords, visitOrder);
 }
 
