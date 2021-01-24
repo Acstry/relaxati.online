@@ -40,26 +40,26 @@
     		<h1>Address</h1>
 
     		<label for="email"><b>Address Line 1</b></label>
-    		<input type="text" placeholder="Ex: 1234 Smart Ln." name="address" required>
+    		<input type="text" id="streetAddress" placeholder="Ex: 1234 Smart Ln." name="address" required>
 
     		<label for="psw"><b>City and State</b></label>
-    		<input type="text" placeholder="Ex: Parma, OH" name="city" required>
+    		<input id="cityAndState" type="text" placeholder="Ex: Parma, OH" name="city" required>
 
-				<!---add in menu of choices for timeing: 20, 45, 60, and hour and 15 mins--->
-				<h1>Duration</h1>
-				<input type="radio" id="twenty" name="duration" value="20">
-				<label for="twenty">20 Mins</label><br>
+			<!---add in menu of choices for timeing: 20, 45, 60, and hour and 15 mins--->
+			<h1>Duration</h1>
+			<input type="radio" id="twenty" name="duration" value="20">
+			<label for="twenty">20 Mins</label><br>
 
-				<input type="radio" id="fourty-five" name="duration" value="45">
-				<label for="twenty">45 Mins</label><br>
+			<input type="radio" id="fourty-five" name="duration" value="45">
+			<label for="twenty">45 Mins</label><br>
 
-				<input type="radio" id="hour" name="duration" value="60">
-				<label for="twenty">1 Hour</label><br>
+			<input type="radio" id="hour" name="duration" value="60">
+			<label for="twenty">1 Hour</label><br>
 
-				<input type="radio" id="hour-thirty" name="duration" value="90">
-				<label for="twenty">1 Hour 30 Mins</label><br>
+			<input type="radio" id="hour-thirty" name="duration" value="90">
+			<label for="twenty">1 Hour 30 Mins</label><br>
 
-    		<button type="submit" class="btn" onsubmit="findMyRoute()">Submit</button>
+    		<button type="button" class="btn" onclick="findSpecifiedRoute()">Submit</button>
     		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   		</form>
 		</div>
