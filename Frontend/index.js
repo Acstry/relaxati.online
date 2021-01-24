@@ -220,7 +220,7 @@ function plotRoute(route){
     pathArray.push(startingCoords);
     for(let place of places){
         let coords = Array.from(place.location.coordinates).reverse();
-        drawlayer.addLayer(L.marker(coords))//.addTo(mymap);
+        drawlayer.addLayer(L.marker(coords, {title: place.name}))//.addTo(mymap);
         pathArray.push(coords);
     }
     let pathline = L.polyline(pathArray, {color: 'black'})//.addTo(mymap);
