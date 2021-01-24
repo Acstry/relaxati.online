@@ -8,6 +8,7 @@ let requestCount = 0;
 Radar.initialize(PUBLISH_KEY);
 
 let mymap = L.map('mapid');
+let drawlayer = L.layerGroup().addTo(mymap);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: '',
@@ -182,17 +183,19 @@ function apiWait(){
 }
 
 function plotRoute(startingCoords, places){
+    drawlayer.clearLayers();
     let pathArray = [];
     startingCoords = convertCoords(startingCoords).reverse();
     mymap.setView(startingCoords, 13);
-    L.marker(startingCoords, {icon: greenIcon}).addTo(mymap);
+    drawlayer.addLayer(L.marker(startingCoords, {icon: greenIcon}))//.addTo(mymap);
     pathArray.push(startingCoords);
     for(let place of places){
         let coords = Array.from(place.location.coordinates).reverse();
-        L.marker(coords).addTo(mymap);
+        drawlayer.addLayer(L.marker(coords))//.addTo(mymap);
         pathArray.push(coords);
     }
-    let pathline = L.polyline(pathArray, {color: 'black'}).addTo(mymap);
+    let pathline = L.polyline(pathArray, {color: 'black'})//.addTo(mymap);
+    drawlayer.addLayer(pathline);
     mymap.fitBounds(pathline.getBounds());
 }
 
