@@ -7,14 +7,6 @@
   padding-right: ($spacer * .5) !important;
 }
 
-.plan {
-	background-color: #811bff;
-	text-align: center;
-	padding: 2px;
-	border-radius: 8px;
-	width:150px;
-}
-
 .vertical-menu {
   width: 90%;
   height: 80%;
@@ -125,11 +117,20 @@ body {
 
 .btn {
 	border-radius: 8px;
-	margin-right:5%;
-	margin-left: 2%;
+	margin-right:3%;
+	margin-left: 3%;
 }
 
 .btn:hover {
 	color: white;
 	background: #7D46EF;
+}
+
+.plan {
+	background-color: #811bff;
+	text-align: center;
+	padding: 3px;
+	border-radius: 8px;
+	width: 17.5%;
+	margin-right: 3.5%;
 }
