@@ -7,6 +7,15 @@ let requestCount = 0;
 
 Radar.initialize(PUBLISH_KEY);
 
+let mymap = L.map('mapid');
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: '',
+  maxZoom: 18,
+  id: 'mapbox/streets-v11',
+  accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+}).addTo(mymap);
+
 const INTERESTS = {
     OUTDOOR: 'outdoor-places',
     SCHOOLS: 'education',
@@ -24,6 +33,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
     let visitedIds = new Set();
     let visitOrder = [];
     let startCoords = await getMyCoords(address);
+    
     while(remainingDuration > 0){
         let coords = visitOrder.length > 0 ?
             convertCoords(visitOrder[visitOrder.length - 1].location.coordinates) : startCoords;
@@ -51,6 +61,7 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
         visitedIds.add(chosen.place._id);
         visitOrder.push(chosen.place);
     }
+    
     console.log(visitOrder);
     plotRoute(startCoords, visitOrder);
 }
@@ -138,7 +149,7 @@ function apiWait(){
                 setTimeout(() =>{
                     console.log('done');
                     resolve();
-                }, 1500);
+                }, 1000);
             });
         });
         //prevWait.then(() => new Promise(res => setTimeout(1500, res)));
@@ -148,7 +159,11 @@ function apiWait(){
 }
 
 function plotRoute(startingCoords, places){
-    var mymap = L.map('mapid').setView(convertCoords(startingCoords), 13);
+    mymap.setView(convertCoords(startingCoords).reverse(), 13);
+    L.marker(convertCoords(startingCoords).reverse()).addTo(mymap);
+    for(let place of places){
+        L.marker(place.location.coordinates.reverse()).addTo(mymap);
+    }
 }
 
 function openForm() {
