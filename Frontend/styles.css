@@ -119,15 +119,17 @@ body {
 	border-radius: 8px;
 	margin-right:3%;
 	margin-left: 3%;
+	background: #7D46EF;
+	color:white;
 }
 
 .btn:hover {
-	color: white;
-	background: #7D46EF;
+	color: #7D46EF;
+	background:white
 }
 
 .plan {
-	background-color: #811bff;
+	background-color: #7D46EF;
 	text-align: center;
 	padding: 3px;
 	border-radius: 8px;
