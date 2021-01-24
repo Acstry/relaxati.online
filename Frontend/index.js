@@ -1,6 +1,6 @@
 
 // paste key here: please do NOT commit the API key
-const PUBLISH_KEY = "";
+const PUBLISH_KEY = "prj_test_pk_6e4c397df81c90395fe8ea83def5745747ebb18c";
 
 let prevWait = Promise.resolve();
 let requestCount = 0;
@@ -26,6 +26,7 @@ const INTERESTS = {
     INFRASTRUCTURE: 'city-infrastructure',
     ARTS_ENTERTAINMENT: 'arts-entertainment',
     RELIGION: 'religion',
+    FOOD_BEVERAGE: 'food-beverage',
 };
 
 const greenIcon = new L.Icon({
@@ -37,6 +38,15 @@ const greenIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
+const checkIdToInterest = new Map([
+    ['shoppingCheck', INTERESTS.SHOPPING],
+    ['outdoorsCheck', INTERESTS.OUTDOOR],
+    ['artsEntertainmentCheck', INTERESTS.ARTS_ENTERTAINMENT],
+    ['foodBeverageCheck', INTERESTS.FOOD_BEVERAGE],
+    ['religionCheck', INTERESTS.RELIGION],
+    ['educationCheck', INTERESTS.SCHOOLS],
+]);
+
 //window.onload = () => findMyRoute();
 
 function findSpecifiedRoute(){
@@ -47,8 +57,16 @@ function findSpecifiedRoute(){
     let durationRadio = document.getElementsByName('duration');
     console.log(durationRadio);
     let duration = Array.from(durationRadio).filter(dur => dur.checked)[0].value;
-    console.log(streetAddress, cityAndState, duration);
-    findMyRoute(`${streetAddress} ${cityAndState}`, [INTERESTS.OUTDOOR, INTERESTS.RELIGION], parseInt(duration));
+    
+    let interests = [];
+    for(let [id, interest] of checkIdToInterest.entries()){
+        if(document.getElementById(id).checked){
+            interests.push(interest);
+        }
+    }
+    
+    console.log(streetAddress, cityAndState, duration, interests);
+    findMyRoute(`${streetAddress} ${cityAndState}`, interests, parseInt(duration));
     return false;
 }
 
