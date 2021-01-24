@@ -25,6 +25,15 @@ const INTERESTS = {
     RELIGION: 'religion',
 };
 
+const greenIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
 //window.onload = () => findMyRoute();
 
 function findSpecifiedRoute(){
@@ -173,11 +182,18 @@ function apiWait(){
 }
 
 function plotRoute(startingCoords, places){
-    mymap.setView(convertCoords(startingCoords).reverse(), 13);
-    L.marker(convertCoords(startingCoords).reverse()).addTo(mymap);
+    let pathArray = [];
+    startingCoords = convertCoords(startingCoords).reverse();
+    mymap.setView(startingCoords, 13);
+    L.marker(startingCoords, {icon: greenIcon}).addTo(mymap);
+    pathArray.push(startingCoords);
     for(let place of places){
-        L.marker(place.location.coordinates.reverse()).addTo(mymap);
+        let coords = Array.from(place.location.coordinates).reverse();
+        L.marker(coords).addTo(mymap);
+        pathArray.push(coords);
     }
+    let pathline = L.polyline(pathArray, {color: 'black'}).addTo(mymap);
+    mymap.fitBounds(pathline.getBounds());
 }
 
 function openForm() {
