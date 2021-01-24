@@ -7,6 +7,12 @@
   padding-right: ($spacer * .5) !important;
 }
 
+.plan {
+	background-color: #811bff;
+	text-align: center;
+	padding: 5px;
+}
+
 .vertical-menu {
   width: 90%;
   height: 80%;
