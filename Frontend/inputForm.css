@@ -5,13 +5,13 @@
   font-family: Helvetica;
   font-size: thick;
   font-size: 14pt;
-  padding: 16px 20px;
+  padding: 2%;
   border: none;
   cursor: pointer;
-  width: 95%;
+  width: 92%;
   margin-bottom:10px;
   opacity: 0.8;
-  margin-top: 4%;
+  margin-top: 2%;
 }
 
 /* Add some hover effects to buttons */
@@ -26,7 +26,8 @@
   background-color: white;
   color:#b790ff;
   border-radius: 16px;
-  padding: 1%;
+  padding: .5%;
+  padding-left: 2%;
   border-style: outset;
   border-color: #b790ff;
   border-width: thick;
