@@ -5,7 +5,7 @@
   padding: 16px 20px;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 95%;
   margin-bottom:10px;
   opacity: 0.8;
   margin-top: 4%;
@@ -24,6 +24,9 @@
   color:#7D46EF;
   border-radius: 8px;
   padding: 1%;
+  border-style: outset;
+  border-color: #7D46EF;
+  border-width: thick;
 }
 
 /* The popup form - hidden by default */
