@@ -10,6 +10,8 @@ Radar.initialize(PUBLISH_KEY);
 let mymap = L.map('mapid');
 let drawlayer = L.layerGroup().addTo(mymap);
 
+let allPaths = new Map();
+
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: '',
   maxZoom: 18,
@@ -86,8 +88,33 @@ async function findMyRoute(address='3415 West 144th St Cleveland OH', interests=
     }
     
     console.log(visitOrder);
+    
+    route = {
+        start: startCoords,
+        places: visitOrder
+    };
+    
     closeForm();
-    plotRoute(startCoords, visitOrder);
+    let elem = addRoute(route);
+    elem.click()
+    //plotRoute(route);
+}
+
+function addRoute(route){
+    let opt = document.createElement('a');
+    let pathName = 'path' + (allPaths.size + 1);
+    allPaths.set(pathName, route);
+    opt.innerHTML = pathName;
+    opt.classList.add('toggleOption');
+    document.getElementById('myPaths').appendChild(opt);
+    opt.onclick = () => {
+        Array.from(document.getElementsByClassName('toggleOption')).forEach(option => {
+            option.classList.remove('active');
+        });
+        opt.classList.add('active');
+        plotRoute(route);
+    };
+    return opt;
 }
 
 function convertCoords(coords){
@@ -182,7 +209,9 @@ function apiWait(){
      }
 }
 
-function plotRoute(startingCoords, places){
+function plotRoute(route){
+    let startingCoords = route.start;
+    let places = route.places;
     drawlayer.clearLayers();
     let pathArray = [];
     startingCoords = convertCoords(startingCoords).reverse();
