@@ -29,15 +29,16 @@
   background-color: #bd88ff;
   color: white;
 }
+
 body {
 
 		background-image: url(Pictures/Background.png);
 		background-repeat: no-repeat;
 		background-size: cover;
 
-	}
+}
 
-	.boxes {
+.boxes {
 		mix-blend-mode: lighten;
 		background: #FFFFFF;
 		border-radius: 8px;
@@ -47,7 +48,7 @@ body {
 		padding-left: 1.5%;
 		padding-right: 1.5%;
 		padding-top: .2%;
-	}
+}
 
 .paths {
   	height: 67%;
@@ -86,7 +87,6 @@ body {
 }
 
 .dashboard {
-
 		display: inline-block;
 		position: fixed;
 		width: 50%;
