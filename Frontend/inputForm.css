@@ -1,7 +1,10 @@
 /*button formatting*/
 .form-container .btn {
-  background-color: #7D46EF;
-  color: white;
+  background-color: #b691ff;
+  color:#622cc7;
+  font-family: Helvetica;
+  font-size: thick;
+  font-size: 14pt;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -21,11 +24,11 @@
   width: 100%;
   height: 20%;
   background-color: white;
-  color:#7D46EF;
-  border-radius: 8px;
+  color:#b790ff;
+  border-radius: 16px;
   padding: 1%;
   border-style: outset;
-  border-color: #7D46EF;
+  border-color: #b790ff;
   border-width: thick;
 }
 
